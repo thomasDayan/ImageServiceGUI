@@ -18,12 +18,31 @@ namespace ImageApp
     /// <summary>
     /// Interaction logic for LogsView.xaml
     /// </summary>
-    public partial class LogsView : UserControl
+    partial class LogsView : UserControl
     {
+        private LogsViewModel lvm;
+        /// <summary>
+        /// Constractor of log view.
+        /// </summary>
         public LogsView()
         {
             InitializeComponent();
-            
+            lvm = new LogsViewModel();
+            this.DataContext = lvm;
+            Application.Current.Exit += CloseApplication;
+
+            lvm.UpdateCollection();
+        }
+        /// <summary>
+        /// Apply this function when the window closed.
+        /// </summary>
+        /// <param name="sender">what we send.</param>
+        /// <param name="exitEventArgs">the exit arguments.</param>
+        private void CloseApplication(object sender, ExitEventArgs exitEventArgs)
+        {
+            Application.Current.Exit -= CloseApplication;
+            lvm.CloseClient();
+
         }
     }
 }

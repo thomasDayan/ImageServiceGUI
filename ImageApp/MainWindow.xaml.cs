@@ -20,10 +20,22 @@ namespace ImageApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string color;
+        public string Color
+        {
+            get { return color; }
+        }
+        /// <summary>
+        /// Constraction of the main window.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
-            
+            int count = ClientConnected.GetInstance.getConnect();
+            if (count >= 3) { color = "White"; }
+            else { color = "Gray";  }
+            this.DataContext = this;
         }
+        
     }
 }

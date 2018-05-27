@@ -36,7 +36,7 @@
             </StackPanel>
             <StackPanel>
                 <Button FontSize="25" IsEnabled="{Binding IsCheck}" Click="onClickDo"> Remove </Button>
-            <ListBox  IsSynchronizedWithCurrentItem="False" ItemsSource="{Binding Handlers}" SelectedItem="{Binding Delete}">
+            <ListBox IsSynchronizedWithCurrentItem="False" ItemsSource="{Binding Handlers}" SelectedItem="{Binding Delete}">
                     <ListBox.ItemTemplate> 
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">

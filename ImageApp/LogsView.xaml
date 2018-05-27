@@ -6,7 +6,22 @@
              xmlns:local="clr-namespace:ImageApp"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    <StackPanel Margin="0,0,-250,-322">
+        <Label HorizontalAlignment="Center" Content="Logs" FontSize="25" FontWeight="Bold" Foreground="Blue"/>
+        <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Visible">
+
+            <DataGrid ItemsSource="{Binding MyList}"  AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="False" Height="300" VerticalAlignment="Stretch">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Log" Binding="{Binding Log}">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" Value="{Binding Colur}"/>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Message" Binding="{Binding Message}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        </ScrollViewer>
+    </StackPanel>
 </UserControl>
