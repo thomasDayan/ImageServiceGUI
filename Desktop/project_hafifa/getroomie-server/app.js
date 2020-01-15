@@ -7,7 +7,10 @@ var logger = require("morgan");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var registerRouter = require("./routes/Register");
-var UsersModel = require("./models/Users");
+var messageRouter = require("./routes/Messages");
+var Schema = require("./models/Users");
+var UsersModel = Schema.usersSchema;
+var MessageModel = Schema.messagesSchema;
 var logOutRouter = require("./routes/LogOut");
 var logInRouter = require("./routes/LogIn");
 var profileRouter = require("./routes/Profile");
@@ -38,6 +41,8 @@ app.use("/LogOut", logOutRouter);
 app.use("/LogIn", logInRouter);
 app.use("/Users", UsersModel);
 app.use("/Profile", profileRouter);
+app.use("/Message", MessageModel);
+app.use("/Messages", messageRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

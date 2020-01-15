@@ -10,6 +10,20 @@ const usersSchema = new Schema({
   Email: String
 });
 
-const Users = mongoose.model("Users", usersSchema);
+/**
+ * NOTE
+ * need to change the picture when we know how to save picture
+ */
+const messagesSchema = new Schema({
+  _id: mongoose.Schema.Types.ObjectId,
+  userIdSender: String,
+  userIdReceiver: String,
+  message: String,
+  date: String
+});
 
-module.exports = Users;
+const Users = mongoose.model("Users", usersSchema);
+const Messages = mongoose.model("Messages", messagesSchema);
+
+module.exports.usersSchema = Users;
+module.exports.messagesSchema = Messages;
