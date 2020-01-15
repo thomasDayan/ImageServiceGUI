@@ -22,12 +22,14 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { Redirect } from "react-router-dom";
 import * as Constants from "../Constants";
+import Messages from "../Messages/Messages";
 export default class MenuBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
       connected: false,
-      filterOpenDialog: false
+      filterOpenDialog: false,
+      messageOpenDialog: false
     };
   }
 
@@ -38,6 +40,16 @@ export default class MenuBar extends Component {
   handleToggle = () => {
     this.setState({
       filterOpenDialog: !this.state.filterOpenDialog
+    });
+  };
+
+  handleFilterMessages = () => {
+    this.setState({ messageOpenDialog: true });
+  };
+
+  handleToggleMessage = () => {
+    this.setState({
+      messageOpenDialog: !this.state.messageOpenDialog
     });
   };
 
@@ -66,7 +78,7 @@ export default class MenuBar extends Component {
             aria-label="full width outlined button group"
           >
             <Button onClick={this.handleToggle}>Filter</Button>
-            <Button>Messages</Button>
+            <Button onClick={this.handleToggleMessage}>Messages</Button>
             <Button>Likes</Button>
           </ButtonGroup>
         </MuiThemeProvider>
@@ -74,6 +86,17 @@ export default class MenuBar extends Component {
           <DialogTitle id="form-dialog-title">Filter</DialogTitle>
           <DialogContent style={{ padding: 20 }}>
             {this.props.searchHome ? <Filter /> : <FilterApartment />}
+          </DialogContent>
+        </Dialog>
+
+        <Dialog
+          open={this.state.messageOpenDialog}
+          onClose={this.handleToggleMessage}
+          fullWidth
+        >
+          <DialogTitle id="form-dialog-title">Messages</DialogTitle>
+          <DialogContent style={{ padding: 10 }}>
+            <Messages />
           </DialogContent>
         </Dialog>
       </div>

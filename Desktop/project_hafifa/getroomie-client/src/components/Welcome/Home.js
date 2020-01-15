@@ -27,6 +27,7 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import UploadDetailsSearchHome from "../Profile/UploadDetailsSearchHome";
 import UploadDetailsSearchRoomie from "../Profile/UploadDetailsSearchRoomie";
+import Messages from "../Messages/Messages";
 import { Redirect } from "react-router-dom";
 import * as Constants from "../Constants";
 
@@ -37,6 +38,7 @@ export default class Home extends Component {
       connected: true,
       searchHome: false,
       profileOpenDialog: false,
+      messageOpenDialog: false,
       redirectHome: false,
       stillLoad: true
     };
