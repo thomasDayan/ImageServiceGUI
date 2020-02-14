@@ -18,8 +18,8 @@ router.post("/", (req, res) => {
     id: req.body.id,
     userName: req.body.userName,
     password: req.body.password,
-    birthday: req.body.birthday,
-    Email: req.body.Email
+    birthYear: req.body.birthYear,
+    email: req.body.email
   });
   /*
    * Check if the user exists
@@ -67,10 +67,16 @@ router.get("/:userId", (req, res) => {
   Users.find({ id: req.params.userId })
     .exec()
     .then(doc => {
-      console.log(doc);
-      res.status(details.ACCEPT).json(doc);
+      if (doc == null) {
+        console.log(err);
+        res.status(details.ERROR).json({ error: err });
+      } else {
+        res.status(details.ACCEPT).json(doc);
+      }
     })
     .catch(err => {
+      console.log("there is error");
+
       console.log(err);
       res.status(details.ERROR).json({ error: err });
     });

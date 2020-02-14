@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
       .exec()
       .then(doc => {
         console.log(doc);
-        res.status(details.ACCEPT).json(doc);
+        res.status(details.ACCEPT).json(doc[0]);
       })
       .catch(err => {
         console.log(err);
