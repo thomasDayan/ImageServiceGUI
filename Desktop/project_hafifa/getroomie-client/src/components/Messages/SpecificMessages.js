@@ -73,8 +73,8 @@ class SpecificMessages extends Component {
         },
         method: "POST",
         body: JSON.stringify({
-          userIdSender: parseInt(this.state.myId),
-          userIdReceiver: parseInt(this.state.recId),
+          userIdSender: this.state.myId,
+          userIdReceiver: this.state.recId,
           message: this.inputRef.value,
           date: new Date().toLocaleString()
         })

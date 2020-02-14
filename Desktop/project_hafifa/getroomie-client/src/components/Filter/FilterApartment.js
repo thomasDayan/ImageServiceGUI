@@ -35,7 +35,8 @@ export class AddApartment extends Component {
       cleanPerson: 0,
       cleanCare: 0,
       ownPet: false,
-      carePet: false
+      carePet: false,
+      smoking: false
     };
   }
 
@@ -55,7 +56,7 @@ export class AddApartment extends Component {
     this.setState({ ages: value });
   };
 
-  handleChangePet = name => (e, value) => {
+  handleChange = name => (e, value) => {
     if (value === "yes") {
       this.setState({ [name]: true });
     } else {
@@ -111,7 +112,7 @@ export class AddApartment extends Component {
             max={5}
             style={{ width: "95%" }}
           />
-          <Grid item xs={12}>
+          <Grid item xs={6}>
             <div>
               <Typography style={{ top: "80%" }}>
                 Care about having a pet ?{" "}
@@ -120,7 +121,35 @@ export class AddApartment extends Component {
                 aria-label="gender"
                 name="ownPet"
                 row
-                onChange={this.handleChangePet("ownPet")}
+                onChange={this.handleChange("ownPet")}
+              >
+                <FormControlLabel
+                  value="yes"
+                  control={<Radio color="primary" />}
+                  label="yes"
+                  labelPlacement="start"
+                  style={{ top: "-25%" }}
+                />
+                <FormControlLabel
+                  value="no"
+                  control={<Radio color="primary" />}
+                  label="no"
+                  labelPlacement="start"
+                />
+              </RadioGroup>
+            </div>
+          </Grid>
+
+          <Grid item xs={6}>
+            <div>
+              <Typography style={{ top: "80%" }}>
+                Care about smoking ?{" "}
+              </Typography>
+              <RadioGroup
+                aria-label="gender"
+                name="smoking"
+                row
+                onChange={this.handleChange("smoking")}
               >
                 <FormControlLabel
                   value="yes"

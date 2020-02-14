@@ -58,31 +58,8 @@ class Messages extends Component {
       this.setState({ connected: false });
     }
 
-    //let array = await this.getMessages();
-    let array = [
-      {
-        _id: "5dec006b0fcb0234f4616d97",
-        userIdSender: "tomerdayan",
-        userIdReceiver: "philip",
-        message: "hello roni",
-        date: "7.12.2019, 21:41:30",
-        userNameSender: "philip dayan",
-        pictureSender: "",
-        userNameReceiver: "roni gold",
-        pictureReceiver: ""
-      },
-      {
-        _id: "5dec006b0fcb0234f4616d97",
-        userIdSender: "tomerdayan",
-        userIdReceiver: "philip",
-        message: "hello roni",
-        date: "7.12.2019, 21:41:30",
-        userNameSender: "philip dayan",
-        pictureSender: "",
-        userNameReceiver: "roni gold",
-        pictureReceiver: ""
-      }
-    ];
+    let array = await this.getMessages();
+
     this.setState({ messageArray: array });
   }
 

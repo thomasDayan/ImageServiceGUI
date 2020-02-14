@@ -27,9 +27,9 @@ export default class Register extends Component {
 
     const response = await fetch("/Register/" + value);
     if (response.status == CONST.ACCEPT) {
+      exist = true;
       this.setState({ errUserName: "username exists", userName: value });
     }
-
     if (value.length == 0) {
       this.setState({ errUserName: "", userName: value });
     } else if (value.length < 3) {
